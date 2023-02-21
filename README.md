@@ -1,2 +1,4 @@
 # kun126.github.io
-Blog
+My personal page
+
+Templete: https://github.com/probberechts/hexo-theme-cactus
