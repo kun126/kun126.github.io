@@ -15,11 +15,11 @@ $(document).ready(function() {
   /**
    * Shows the responsive navigation menu on mobile.
    */
-  $("#header > #nav > ul > .icon").click(function() {
+  $("#header > #nav > ul > .icon").on("click", function() {
     $("#header > #nav > ul").toggleClass("responsive");
   });
 
-
+  Instead of .click(fn) use .on("click", fn)
   /**
    * Controls the different versions of  the menu in blog post articles 
    * for Desktop, tablet and mobile.
@@ -59,7 +59,7 @@ $(document).ready(function() {
         var topDistance = menu.offset().top;
 
         // hide only the navigation links on desktop
-        if (!nav.is(":visible") && topDistance < 100) {
+        if (!nav.is(":visible") && topDistance < 95) {
           nav.show();
         } else if (nav.is(":visible") && topDistance > 100) {
           nav.hide();
