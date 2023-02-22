@@ -10,7 +10,7 @@ if (!!$.prototype.justifiedGallery) {
   $(".article-gallery").justifiedGallery(options);
 }
 
-$(document).ready(function() {
+$(function() {
 
   /**
    * Shows the responsive navigation menu on mobile.
@@ -19,7 +19,6 @@ $(document).ready(function() {
     $("#header > #nav > ul").toggleClass("responsive");
   });
 
-  Instead of .click(fn) use .on("click", fn)
   /**
    * Controls the different versions of  the menu in blog post articles 
    * for Desktop, tablet and mobile.
