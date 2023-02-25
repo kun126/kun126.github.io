@@ -471,7 +471,6 @@ html {
   margin: 0;
   padding: 0;
   height: 100%;
-/* border-top: 2px solid $color-text */
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
@@ -663,7 +662,7 @@ body {
 #header #nav ul li:last-child a {
   margin-right: 0;
 }
-#header:hover #color_logo {
+#logo:hover #color_logo {
   display: inline-block;
   float: left;
   margin-right: 20px;
