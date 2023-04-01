@@ -16,7 +16,7 @@
 <meta property="og:image" content="http://kun126.github.io/images/gpt-result/1wordcloud.png">
 <meta property="og:image" content="http://kun126.github.io/images/gpt-result/2freqplot.png">
 <meta property="article:published_time" content="2023-02-28T22:04:50.000Z">
-<meta property="article:modified_time" content="2023-03-03T15:45:42.424Z">
+<meta property="article:modified_time" content="2023-04-01T22:50:02.394Z">
 <meta property="article:author" content="Kun Chen">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://kun126.github.io/images/gpt-result/1wordcloud.png">
@@ -175,7 +175,7 @@
 <li>In the context of binary gendered traits, is there a particular side of the binary gender stereotypes that non-binary people are described as?</li>
 <li>With respect to the difference between CEOs and same-gender supporting roles, does occupying a higher organizational position violate any prescriptive stereotypes?</li>
 </ol>
-<h2 id="Data-collection-and-processing"><a href="#Data-collection-and-processing" class="headerlink" title="Data collection and processing"></a>Data collection and processing</h2><p>A total of 1200 stories were gathered from distinct conversations, with 400 stories for each gender. It’s important to note that ChatGPT is highly sensitive to repeating the same prompt multiple times within a single conversation. In such cases, its capability to retain information from previous dialogues can lead to a chain of interdependencies, for example, sharing the same topics (future or legacy) in the last paragraph. Therefore, it is advisable to generate responses separately to ensure optimal performance and avoid such unintended patterns.</p>
+<h2 id="Data-collection-and-processing"><a href="#Data-collection-and-processing" class="headerlink" title="Data collection and processing"></a>Data collection and processing</h2><p>A total of 1200 stories were gathered from independent conversations, with 400 stories for each gender. It’s important to note that ChatGPT is highly sensitive to repeating the same prompt multiple times within a single conversation. In such cases, its capability to retain information from previous dialogues can lead to a chain of interdependencies, for example, sharing the same topics (future or legacy) in the last paragraph. Therefore, it is advisable to generate responses separately to ensure optimal performance and avoid such unintended patterns.</p>
 <p>To ensure clarity and reliability in embedding, processing involves a step of pronoun-wise replacement and several basic procedures. I choose to use pronoun-wise analysis instead of names because names can be shared by both binary and non-binary genders, leading to ambiguous references in the embedding space. Additionally, many names only occur a few times, and co-occurrence-based embedding may not be stable for them, resulting in less reliable outcomes for small datasets. Basic procedures involve lowercase and punctuationless.</p>
 <p>Specifically, in order to handle CEO names, I consider all pronouns except for those referring to CEOs as supporting characters, and replace them with their respective irregular forms. After that, the CEO names are identified using the common pattern of “Once upon a time, there was a CEO named…”, and subsequently replaced with the corresponding pronouns. Tables below summarize these changes.</p>
 <div class="title">Table 1. Replacement of CEO name (bottom) and supporting character’s pronoun (top)</div>
