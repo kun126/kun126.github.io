@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="What is Decorator and why it matters?In simple terms, a decorator is a function that enhances the behavior of another function without changing its code directly. It’s like adding a special twist to y">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors">
+<meta property="og:url" content="http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/index.html">
+<meta property="og:site_name" content="Kun Chen">
+<meta property="og:description" content="What is Decorator and why it matters?In simple terms, a decorator is a function that enhances the behavior of another function without changing its code directly. It’s like adding a special twist to y">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-04-25T08:35:14.000Z">
+<meta property="article:modified_time" content="2024-04-25T08:35:40.585Z">
+<meta property="article:author" content="Kun Chen">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/profile.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/smart.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/smart.png">
+        
+      
+    
+    <!-- title -->
+    <title>Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/kun126">Projects</a></li><!--
+     --><!--
+       --><li><a href="/events/">Events</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/04/16/Introduction-to-Data-Centric-AI-Insights-and-Resources/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/&text=Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/&title=Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/&is_video=false&description=Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors&body=Check out this article: http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/&title=Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/&title=Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/&title=Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/&title=Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/&name=Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/&t=Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-Decorator-and-why-it-matters"><span class="toc-number">1.</span> <span class="toc-text">What is Decorator and why it matters?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Syntax"><span class="toc-number">2.</span> <span class="toc-text">Syntax</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Multiple-decorators"><span class="toc-number">2.1.</span> <span class="toc-text">Multiple decorators</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Decorator-as-a-function-output"><span class="toc-number">2.2.</span> <span class="toc-text">Decorator as a function output</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Common-use-cases-and-practical-information"><span class="toc-number">3.</span> <span class="toc-text">Common use cases and practical information</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python-descriptors"><span class="toc-number">3.1.</span> <span class="toc-text">Python descriptors</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#property"><span class="toc-number">3.1.1.</span> <span class="toc-text">@property</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#staticmethod"><span class="toc-number">3.1.2.</span> <span class="toc-text">@staticmethod</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#classmethod"><span class="toc-number">3.1.3.</span> <span class="toc-text">@classmethod</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Numba-decorators"><span class="toc-number">3.2.</span> <span class="toc-text">Numba decorators</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#jit-and-njit"><span class="toc-number">3.2.1.</span> <span class="toc-text">@jit and @njit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vectorize-and-guvectorize"><span class="toc-number">3.2.2.</span> <span class="toc-text">@vectorize and @guvectorize</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tips-and-recommendations"><span class="toc-number">3.2.3.</span> <span class="toc-text">Tips and recommendations</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">4.</span> <span class="toc-text">Reference</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Kun Chen</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-04-25T08:35:14.000Z" itemprop="datePublished">2024-04-25</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="What-is-Decorator-and-why-it-matters"><a href="#What-is-Decorator-and-why-it-matters" class="headerlink" title="What is Decorator and why it matters?"></a>What is Decorator and why it matters?</h2><p>In simple terms, a decorator is a function that enhances the behavior of another function without changing its code directly. It’s like adding a special twist to your functions without complicating their core logic. </p>
+<p>Below is a simplified example to show how it works. In this example, <code>my_decorator</code> is a decorator function that takes a function <code>func</code> as its argument and returns a new function <code>wrapper</code>. The wrapper function adds behavior after calling <code>func</code>. By decorating our target function with <code>@my_decorator</code>, we effectively create <code>decorated_function</code> with the wrapped version provided by the decorator. When <code>decorated_function</code> is called, it executes the additional logic defined in the decorator alongside its original functionality.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Without decorator</span><br><span class="line">def my_decorator(func):</span><br><span class="line">	def wrapper():</span><br><span class="line">		func()</span><br><span class="line">		print(&quot;We just called the input function.&quot;)</span><br><span class="line">	return wrapper</span><br><span class="line"></span><br><span class="line">def func():</span><br><span class="line">	print(&#x27;This is the function to be applied.&#x27;)</span><br><span class="line"></span><br><span class="line">my_decorator(func)()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># With decorator</span><br><span class="line">@my_decorator</span><br><span class="line">def decorated_function():</span><br><span class="line">	print(&#x27;This is the function to be applied.&#x27;)</span><br><span class="line">	</span><br><span class="line">decorated_function()</span><br></pre></td></tr></table></figure>
+<p>Think of decorators as a way to neatly wrap up your functions or methods with extra features without cluttering them up. Normally, if you want to add something to a function, you tack it on after the function’s code. But when your functions start getting big, this can make it hard to understand what’s going on. Decorators address this by providing a cleaner way to add functionality to functions or methods. They essentially allow you to wrap your original function with additional behavior without altering its core implementation. This separation of concerns enhances readability and maintainability by keeping the main function’s logic distinct from the added features.</p>
+<h2 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h2><h3 id="Multiple-decorators"><a href="#Multiple-decorators" class="headerlink" title="Multiple decorators"></a>Multiple decorators</h3><p>Python accepts multiple decorators, which are executed from bottom to top. This means that the decorator closest to the function declaration will be applied first, followed by the next decorator, and so on. For example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@d2</span><br><span class="line">@d1</span><br><span class="line">def func():</span><br><span class="line">	pass</span><br><span class="line"></span><br><span class="line">func()</span><br></pre></td></tr></table></figure>
+<p>is equivalent to:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d2(d1(func))()</span><br></pre></td></tr></table></figure>
+<p>In both cases, the function <code>func</code> is decorated first with <code>d1</code> and then with <code>d2</code>, and finally, the decorated function is called. Here’s an important point to note: <code>d2</code> is not applied directly to <code>func</code>, but rather to the <code>d1-wrapped</code> version of <code>func</code>. This demonstrates the concept of decorators being nested within each other.</p>
+<h3 id="Decorator-as-a-function-output"><a href="#Decorator-as-a-function-output" class="headerlink" title="Decorator as a function output"></a>Decorator as a function output</h3><p>You can also use a decorator as the output of a function. This allows for more dynamic behavior when decorating functions. Here’s how it works:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def decorator_func(arg1,arg2, ...):</span><br><span class="line">	def decorator(func):</span><br><span class="line">		def wrapper(*args, **kwargs):</span><br><span class="line">			return func(*args, **kwargs)</span><br><span class="line">		return wrapper</span><br><span class="line">	return decorator	</span><br><span class="line"></span><br><span class="line">@decorator_func(arg1, arg2, ...)</span><br><span class="line">def func(argA, argB, ...):</span><br><span class="line">	pass</span><br><span class="line"></span><br><span class="line">func(argA, argB, ...)		</span><br></pre></td></tr></table></figure>
+<p>is equivalent to:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">decorator_func(arg1,arg2, ...)(func)(argA, argB, ...)</span><br></pre></td></tr></table></figure>
+<p>in order to add parameters <code>arg1,arg2, ...</code> to the <code>decorator_func</code>, we define the <code>decorator</code> function which wraps the original function <code>func</code> with additional behavior, and return this <code>decorator</code>. This technique allows for greater flexibility in creating decorators with varying behaviors based on arguments passed to the <code>decorator_func</code>. </p>
+<h2 id="Common-use-cases-and-practical-information"><a href="#Common-use-cases-and-practical-information" class="headerlink" title="Common use cases and practical information"></a>Common use cases and practical information</h2><p>Python decorators find application in various scenarios such as logging, caching, and authentication. They are also useful for enforcing access control and permission checks, validating function arguments, and implementing memoization to enhance caching efficiency. </p>
+<p>However, it’s important to note that using several decorators may affect code readability, as determining their order without examining their inner workings can be challenging. Additionally, decorators can sometimes modify the function signature, potentially leading to bad practices when invoking the function.</p>
+<p>In the following sections, we delve into two sets of popular decorators and their applications within Python.</p>
+<h3 id="Python-descriptors"><a href="#Python-descriptors" class="headerlink" title="Python descriptors"></a>Python descriptors</h3><p>Decorators such as @property, @staticmethod, and @classmethod are powerful tools for enhancing the functionality and clarity of class definitions.</p>
+<h4 id="property"><a href="#property" class="headerlink" title="@property"></a>@property</h4><p>The @property decorator is used to create computed attributes and implement controlled access to class attributes. Essentially, it allows you to define methods that can be accessed like regular attributes, providing a cleaner interface for attribute manipulation. </p>
+<h4 id="staticmethod"><a href="#staticmethod" class="headerlink" title="@staticmethod"></a>@staticmethod</h4><p>The @staticmethod decorator defines a method that is associated with a class rather than with instances of the class. Unlike regular methods, static methods don’t have access to instance-specific data (accessed via <code>self</code>). They are typically used for utility functions that are related to the class but don’t depend on specific instance data.</p>
+<h4 id="classmethod"><a href="#classmethod" class="headerlink" title="@classmethod"></a>@classmethod</h4><p>The @classmethod decorator is used to define methods that operate on the class. When you define a class method, the first parameter is typically named <code>cls</code>, which refers to the class itself. Unlike static methods, class methods have access to the class and can modify class-level variables.</p>
+<p><a target="_blank" rel="noopener" href="https://pandas.pydata.org/docs/development/extending.html#registering-custom-accessors">Here</a> is an example of <code>@property</code> and <code>@staticmethod</code> when registering custom accessors with Pandas.</p>
+<h3 id="Numba-decorators"><a href="#Numba-decorators" class="headerlink" title="Numba decorators"></a>Numba decorators</h3><p>Numba is a Just-In-Time (JIT) compiler for Python that translates Python functions to optimized machine code at runtime. It’s primarily used for numerical computing and scientific computing tasks where performance is critical. </p>
+<h4 id="jit-and-njit"><a href="#jit-and-njit" class="headerlink" title="@jit and @njit"></a>@jit and @njit</h4><p>Numba’s main feature is <code>@jit</code>, which stands for just-in-time compilation, making computations faster. It has two modes: “object mode” and “no-Python mode.” Setting <code>forceobj=True</code> puts you in object mode, while <code>nopython=True</code> boosts performance by avoiding Python C API. To make things simpler, Numba offers <code>@njit</code> as a shortcut for <code>@jit(nopython=True)</code>, making optimization easier.</p>
+<h4 id="vectorize-and-guvectorize"><a href="#vectorize-and-guvectorize" class="headerlink" title="@vectorize and @guvectorize"></a>@vectorize and @guvectorize</h4><p>While <code>@jit</code> is great for optimizing array-based computations, Numba offers a higher-level abstraction through universal functions, <code>@vectorize</code> decorator. Instead of dealing with whole arrays at once, you write functions that work on individual elements. Numba then does the heavy lifting, making sure your functions run fast by efficiently looping over the arrays. Plus, <code>@vectorize</code> gives you access to advanced features like reduction, accumulation, and broadcasting. For more flexibility, there’s <code>@guvectorize</code>, which allows you create functions that can handle arbitrary number of elements of input arrays, and take and return arrays of differing dimensions. </p>
+<p>Here is an example of harmonic regression with <code>@guvectorize</code>, comparing the second harmonic’s amplitude to that of the first harmonic.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">@guvectorize(</span><br><span class="line">    &quot;(float64[:], int64, boolean, float64[:])&quot;,</span><br><span class="line">    &quot;(n), (), () -&gt; ()&quot;,</span><br><span class="line">    nopython=True,</span><br><span class="line">)</span><br><span class="line">def amp_reg_1d(y, period, res):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    1D implementation of amplitude ratio.</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    # Initialise the default value and dimension of res</span><br><span class="line">    res[0] = np.nan</span><br><span class="line">   </span><br><span class="line">    # Create the input array X </span><br><span class="line">    t = np.arange(1, n + 1)</span><br><span class="line">    X = np.column_stack(</span><br><span class="line">        (</span><br><span class="line">            np.ones_like(y),</span><br><span class="line">            np.cos(2 * np.pi / period * t),</span><br><span class="line">            np.sin(2 * np.pi / period * t),</span><br><span class="line">            np.cos(4 * np.pi / period * t),</span><br><span class="line">            np.sin(4 * np.pi / period * t),</span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    # Compute the coefficients</span><br><span class="line">    coefficients = np.square(np.linalg.lstsq(X, y)[0])</span><br><span class="line"></span><br><span class="line">    # Place the ratio at the pre-registered location, res[0]</span><br><span class="line">    res[0] = (np.sqrt(coefficients[3] + coefficients[4]) + 1e-20) / (</span><br><span class="line">        np.sqrt(coefficients[1] + coefficients[2]) + 1e-20</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+
+<h4 id="Tips-and-recommendations"><a href="#Tips-and-recommendations" class="headerlink" title="Tips and recommendations"></a>Tips and recommendations</h4><ul>
+<li>focus on small piece of performance-critical code</li>
+<li>use nopython mode instead of object mode</li>
+<li>use <code>Parallel=True</code> when the code logic is parallelisable</li>
+</ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a target="_blank" rel="noopener" href="https://peps.python.org/pep-0318/">https://peps.python.org/pep-0318/</a><br><a target="_blank" rel="noopener" href="https://docs.python.org/3.13/howto/descriptor.html#properties">https://docs.python.org/3.13/howto/descriptor.html#properties</a><br><a target="_blank" rel="noopener" href="https://pandas.pydata.org/docs/development/extending.html">https://pandas.pydata.org/docs/development/extending.html</a><br><a target="_blank" rel="noopener" href="https://pandas.pydata.org/docs/user_guide/enhancingperf.html">https://pandas.pydata.org/docs/user_guide/enhancingperf.html</a><br><a target="_blank" rel="noopener" href="https://numba.readthedocs.io/en/stable/index.html">https://numba.readthedocs.io/en/stable/index.html</a></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/kun126">Projects</a></li>
+         
+          <li><a href="/events/">Events</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-Decorator-and-why-it-matters"><span class="toc-number">1.</span> <span class="toc-text">What is Decorator and why it matters?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Syntax"><span class="toc-number">2.</span> <span class="toc-text">Syntax</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Multiple-decorators"><span class="toc-number">2.1.</span> <span class="toc-text">Multiple decorators</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Decorator-as-a-function-output"><span class="toc-number">2.2.</span> <span class="toc-text">Decorator as a function output</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Common-use-cases-and-practical-information"><span class="toc-number">3.</span> <span class="toc-text">Common use cases and practical information</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python-descriptors"><span class="toc-number">3.1.</span> <span class="toc-text">Python descriptors</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#property"><span class="toc-number">3.1.1.</span> <span class="toc-text">@property</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#staticmethod"><span class="toc-number">3.1.2.</span> <span class="toc-text">@staticmethod</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#classmethod"><span class="toc-number">3.1.3.</span> <span class="toc-text">@classmethod</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Numba-decorators"><span class="toc-number">3.2.</span> <span class="toc-text">Numba decorators</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#jit-and-njit"><span class="toc-number">3.2.1.</span> <span class="toc-text">@jit and @njit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vectorize-and-guvectorize"><span class="toc-number">3.2.2.</span> <span class="toc-text">@vectorize and @guvectorize</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tips-and-recommendations"><span class="toc-number">3.2.3.</span> <span class="toc-text">Tips and recommendations</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">4.</span> <span class="toc-text">Reference</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/&text=Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/&title=Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/&is_video=false&description=Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors&body=Check out this article: http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/&title=Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/&title=Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/&title=Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/&title=Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/&name=Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://kun126.github.io/2024/04/25/Decorator-Essentials-Syntax-Uses-Python-Descriptors-and-Numba-Descriptors/&t=Decorator Essentials: Syntax, Uses, Python Descriptors, and Numba Descriptors"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024
+    Kun Chen
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/kun126">Projects</a></li><!--
+     --><!--
+       --><li><a href="/events/">Events</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
