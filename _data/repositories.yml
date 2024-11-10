@@ -1,14 +1,11 @@
 github_users:
-  - torvalds
-  - alshedivat
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - kun126/geodata-calibration
+  - kun126/embedding-chatgpt-example
+  - kun126/KUL-DV-assignments
+  - kun126/vgg-object-detection-example
+  - kun126/KUL-CV-assignments
+  - kun126/seam-carving-example

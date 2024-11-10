@@ -1,200 +1,191 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
-    "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
-    "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
+    "name": "Kun Chen",
+    "label": "Junior Spatial Data Scientist",
+    "email": "kun.chen@studbocconi.it",
+    "url": "https://kun126.github.io",
+    "location": 
+    {
+      "city": "Rome",
+      "countryCode": "IT"
     },
     "profiles": [
       {
-        "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
+        "network": "LinkedIn",
+        "username": "kun-c-626a83163",
+        "url": "https://www.linkedin.com/in/kun-c-626a83163/"
       }
     ]
   },
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
-      "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": ["Relativity"]
-    }
-  ],
-  "volunteer": [
+      "name": "Data-Pop Alliance",
+      "position": "Junior Spatial Data Scientist",
+      "url": "https://datapopalliance.org/bio/kun-chen/",
+      "startDate": "2024-06-26",
+      "endDate": "2025-01-01",
+      "summary": "New York (US), Remote",
+      "highlights": ["Implemented a SIML-based model to estimate high-resolution socio-economic indicators, aiding in precise flood risk planning.", 
+      "Developed a CI pipeline on GitHub, incorporating unit testing, linting, and Docker to enhance the efficiency and reliability of spatial data projects.", 
+      "Supported an accessibility analysis in an Asian city by deduplicating administrative data, processing AccessMod layers, and creating scientific map visualizations."]
+    },
     {
-      "organization": "People's Climate March",
-      "location": "Zurich, Switzerland",
-      "position": "Lead Organizer",
-      "url": "https://example.com",
-      "startDate": "2014-04-01",
-      "endDate": "2015-07-01",
-      "summary": "Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.",
-      "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
+      "name": "UN World Food Programme",
+      "position": "Data Science Intern",
+      "url": "https://www.wfp.org",
+      "startDate": "2023-06-01",
+      "endDate": "2024-02-01",
+      "summary": "Rome (IT)",
+      "highlights": ["Developed seasonality detection module with two research methods, optimized using Numba, and delivered operational version producing real-time anomalies with enhanced insights over FEWSNet results.", 
+      "Built and deployed an AWS-hosted interactive web app featuring continent-specific seasonal start/end maps, along with relevant time series for the clicked location.", 
+      "Evaluated gap-filling methods for Landsat time series, conducted climate data clustering, and extracted a research dataset from the identified sample locations."]
+    },
+    {
+      "name": "Bosch Power Tools",
+      "position": "R&D Digital Programming Intern",
+      "url": "https://www.wfp.org",
+      "startDate": "2021-06-01",
+      "endDate": "2021-09-01",
+      "summary": "Hangzhou (CN)",
+      "highlights": ["Innovated gear lifetime assessment by merging decision tree and segmented regression, pinpointing critical thresholds for accurate life prognosis.", 
+      "Performed fault diagnosis on vibration signals using FFT and Bi-spectrum models, utilizing interactive visualization for amplitude and sideband analysis.", 
+      "Applied data cleaning, calibration, and fusion techniques to estimate attitudes from power tool sensor data, improving movement reproduction in 3D animation."]
     }
   ],
   "education": [
     {
-      "institution": "University of Zurich, Zurich, Switzerland",
-      "location": "Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Software Development",
-      "studyType": "PhD",
-      "startDate": "1905-01-01",
-      "endDate": "1905-01-01",
-      "score": "10",
-      "courses": ["Theory of Relativity"]
+      "institution": "Bocconi University",
+      "location": "Milan, Italy",
+      "url": "https://www.unibocconi.it/en",
+      "area": "Data Science",
+      "studyType": "Master",
+      "startDate": "2020-10-01",
+      "endDate": "2023-04-01"
+    },
+    {
+      "institution": "KU Leuven",
+      "location": "Leuven, Belgium",
+      "url": "https://www.kuleuven.be/english/kuleuven",
+      "area": "Economics and Data Science",
+      "studyType": "Erasmus Exchange",
+      "startDate": "2022-02-01",
+      "endDate": "2022-07-01"
     }
   ],
   "awards": [
     {
-      "title": "Nobel Prize in Physics",
-      "date": "1921-11-01",
-      "awarder": "Royal Swedish Academy of Sciences",
-      "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/",
-      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
+      "title": "Erasmus Scholarship",
+      "date": "2021-07-01",
+      "url": "https://www.unibocconi.it/en/current-students/international-mobility/exchange-program/graduate-exchange-program",
+      "summary": "Merit-based admission to KU Leuven."
+    },
+    {
+      "title": "Bocconi International Awards",
+      "date": "2020-10-01",
+      "url": "https://www.unibocconi.it/en/programs/current-students/bocconi-international-award-graduate",
+      "summary": "Top applicants in the 'International' sessions."
     }
   ],
   "certificates": [
     {
-      "name": "Machine Learning",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-location-dot"
-    },
-    {
-      "name": "Quantum Computing",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
+      "name": "Disaster Risk Monitoring Using Satellite Imagery",
+      "date": "2024-05-02",
+      "issuer": "NVIDIA",
+      "url": "https://learn.nvidia.com/certificates?id=dNo57Tx9RjGvULjbLbl5Cg",
       "icon": "fa-solid fa-tag"
     },
     {
-      "name": "Quantum Information",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-envelope"
+      "name": "Environmental Social Governance (ESG)",
+      "date": "2024-05-21",
+      "issuer": "Bloomberg",
+      "url": "https://portal.bloombergforeducation.com/certificates/8e4fFKFXjbXWiEEYMSzVr7SY",
+      "icon": "fa-solid fa-tag"
     },
     {
-      "name": "Quantum Cryptography",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
+      "name": "MongoDB Python Developer Path",
+      "date": "2024-02-24",
+      "issuer": "MongoDB",
+      "url": "https://ti-user-certificates.s3.amazonaws.com/ae62dcd7-abdc-4e90-a570-83eccba49043/9588e7d2-c8b7-4392-8c8a-c54354b5ba5c-kun-chen-e112e9e3-a7e4-4586-b62f-123c21aaf4de-certificate.pdf",
       "icon": "fa-solid fa-hashtag"
     },
     {
-      "name": "Quantum Communication",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-calendar"
+      "name": "Problem Solving (Intermediate) with Python",
+      "date": "2024-02-16",
+      "issuer": "HackerRank",
+      "url": "https://www.hackerrank.com/certificates/2a418015e233",
+      "icon": "fa-solid fa-hashtag"
     },
     {
-      "name": "Quantum Teleportation",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-clipboard-check"
-    }
-  ],
-  "publications": [
-    {
-      "name": "Zur Elektrody/namik bewegter Körper",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1905-06-30",
-      "url": "https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies",
-      "summary": "It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source."
-    },
-    {
-      "name": "Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1905-03-18",
-      "url": "https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt",
-      "summary": "In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921."
-    },
-    {
-      "name": "Die Grundlage der allgemeinen Relativitätstheorie",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1916-03-20",
-      "url": "https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie",
-      "summary": "The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914)."
+      "name": "SQL (Advanced)",
+      "date": "2024-02-07",
+      "issuer": "HackerRank",
+      "url": "https://www.hackerrank.com/certificates/02d2bf2ff554",
+      "icon": "fa-solid fa-hashtag"
     }
   ],
   "skills": [
     {
-      "name": "Physics",
+      "name": "Python",
       "level": "Master",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "Statistical Modeling",
+        "Natural Language Processing",
+        "Image Processing",
+        "Machine Learning",
+        "Geospatial Analysis",
+        "Parallel Computing",
+        "Scientific Visualization",
+        "Animation",
+        "Interactive Webapp"
+      ]
+    },
+    {
+      "name": "QGIS",
+      "level": "Intermediate",
+      "icon": "fa-solid fa-map-o",
+      "keywords": [
+        "Raster and Vector Processing",
+        "Scientific Map Visualization",
+        "Geodata Aggregation",
+        "Spatial Indexing and Clipping",
+        "Geospatial Analysis",
+        "PyQGIS"
+      ]
+    },
+    {
+      "name": "SQL",
+      "level": "Advanced",
+      "icon": "fa-solid fa-database",
+      "keywords": [
+        "Data Cleansing",
+        "Data Extraction",
+        "Data Manipulation",
+        "Query Optimization",
+        "Data Aggregation"
       ]
     }
   ],
   "languages": [
     {
-      "language": "German",
-      "fluency": "Native speaker",
+      "language": "Chinese",
+      "fluency": "Native",
       "icon": ""
     },
     {
       "language": "English",
       "fluency": "Fluent",
       "icon": ""
-    }
-  ],
-  "interests": [
-    {
-      "name": "Physics",
-      "icon": "fa-solid fa-tag",
-      "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
-      ]
-    }
-  ],
-  "references": [
-    {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-laptop",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
     },
     {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-thumbtack",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
-    }
-  ],
-  "projects": [
+      "language": "German",
+      "fluency": "Basic",
+      "icon": ""
+    },
     {
-      "name": "Quantum Computing",
-      "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.",
-      "highlights": ["Quantum Teleportation", "Quantum Cryptography"],
-      "startDate": "2018-01-01",
-      "endDate": "2018-01-01",
-      "url": "https://example.com"
+      "language": "Italian",
+      "fluency": "Basic",
+      "icon": ""
     }
   ]
 }

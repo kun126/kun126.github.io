@@ -19,4 +19,4 @@ I’m a data science graduate from [Bocconi University](https://www.unibocconi.i
 
 In 2022, I studied at [KU Leuven](https://www.kuleuven.be/english/kuleuven) as an Erasmus student, an experience that broadened my perspectives and taught me the value of cross-cultural insights in problem-solving.
 
-I’m always on the lookout for new tools and techniques to uncover fresh insights from data. Excited to [connect](kun.chen@studbocconi.it) with others who believe in data’s potential to make a difference!
+I’m always on the lookout for new tools and techniques to uncover fresh insights from data. Excited to [connect]() with others who believe in data’s potential to make a difference!

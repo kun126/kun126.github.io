@@ -1,6 +1,6 @@
 ---
 layout: distill
-title: Why ChatGPT is better for pronoun-based analysis of non-binary gender
+title: Why ChatGPT is Better at Pronoun-based Analysis
 description: 
 tags: LLM
 giscus_comments: false
