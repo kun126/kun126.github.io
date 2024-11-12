@@ -84,7 +84,7 @@ Specifically, in order to handle CEO names, I consider all pronouns except for t
 | **name**      | he          | she         | they           |
 | **name's**    |  his        |  her        | their          |
 
-|   Item   |    Male  | Female   | Non-binary |
+|   Items   |    Male  | Female   | Non-binary |
 | :-------- | :--:        | :--:        | :--:           |
 | **pronoun**| he, his, him  | she, her, hers   |they, their, them, theirs|
 |**irregular form**|hee, hiss, himm |shee, herr, herss |theyy, theirr, themm, theirss|
