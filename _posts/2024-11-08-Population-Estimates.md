@@ -2,7 +2,7 @@
 layout: distill
 title: High Resolution Population Estimates
 description: 
-tags: Demographics
+tags: demographics
 giscus_comments: false
 date: 2024-11-08
 featured: true
