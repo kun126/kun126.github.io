@@ -92,21 +92,21 @@
       "date": "2024-05-02",
       "issuer": "NVIDIA",
       "url": "https://learn.nvidia.com/certificates?id=dNo57Tx9RjGvULjbLbl5Cg",
-      "icon": "fa-solid fa-tag"
+      "icon": "fa-solid fa-rocket"
     },
     {
       "name": "Environmental Social Governance (ESG)",
       "date": "2024-05-21",
       "issuer": "Bloomberg",
       "url": "https://portal.bloombergforeducation.com/certificates/8e4fFKFXjbXWiEEYMSzVr7SY",
-      "icon": "fa-solid fa-tag"
+      "icon": "fa-solid fa-leaf"
     },
     {
       "name": "MongoDB Python Developer Path",
       "date": "2024-02-24",
       "issuer": "MongoDB",
       "url": "https://ti-user-certificates.s3.amazonaws.com/ae62dcd7-abdc-4e90-a570-83eccba49043/9588e7d2-c8b7-4392-8c8a-c54354b5ba5c-kun-chen-e112e9e3-a7e4-4586-b62f-123c21aaf4de-certificate.pdf",
-      "icon": "fa-solid fa-hashtag"
+      "icon": "fa-solid fa-database"
     },
     {
       "name": "Problem Solving (Intermediate) with Python",
@@ -120,7 +120,7 @@
       "date": "2024-02-07",
       "issuer": "HackerRank",
       "url": "https://www.hackerrank.com/certificates/02d2bf2ff554",
-      "icon": "fa-solid fa-hashtag"
+      "icon": "fa-solid fa-database"
     }
   ],
   "skills": [
@@ -143,7 +143,7 @@
     {
       "name": "QGIS",
       "level": "Intermediate",
-      "icon": "fa-solid fa-map-o",
+      "icon": "fa-solid fa-map",
       "keywords": [
         "Raster and Vector Processing",
         "Scientific Map Visualization",
