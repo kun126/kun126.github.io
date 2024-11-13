@@ -5,7 +5,7 @@ description:
 tags: LLM
 giscus_comments: false
 date: 2023-02-28
-featured: true
+featured: false
 
 authors:
   - name: Kun Chen

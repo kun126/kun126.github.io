@@ -5,7 +5,7 @@ description:
 tags: demographics
 giscus_comments: false
 date: 2024-11-08
-featured: true
+featured: false
 
 authors:
   - name: Kun Chen
