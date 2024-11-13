@@ -23,11 +23,8 @@
       "position": "Junior Spatial Data Scientist",
       "url": "https://datapopalliance.org/bio/kun-chen/",
       "startDate": "2024-06-26",
-      "endDate": "2025-01-01",
-      "summary": "New York (US), Remote",
-      "highlights": ["Implemented a SIML-based model to estimate high-resolution socio-economic indicators, aiding in precise flood risk planning.", 
-      "Developed a CI pipeline on GitHub, incorporating unit testing, linting, and Docker to enhance the efficiency and reliability of spatial data projects.", 
-      "Supported an accessibility analysis in an Asian city by deduplicating administrative data, processing AccessMod layers, and creating scientific map visualizations."]
+      "endDate": "present",
+      "summary": "New York (US), Remote"   
     },
     {
       "name": "UN World Food Programme",
@@ -35,10 +32,7 @@
       "url": "https://www.wfp.org",
       "startDate": "2023-06-01",
       "endDate": "2024-02-01",
-      "summary": "Rome (IT)",
-      "highlights": ["Developed seasonality detection module with two research methods, optimized using Numba, and delivered operational version producing real-time anomalies with enhanced insights over FEWSNet results.", 
-      "Built and deployed an AWS-hosted interactive web app featuring continent-specific seasonal start/end maps, along with relevant time series for the clicked location.", 
-      "Evaluated gap-filling methods for Landsat time series, conducted climate data clustering, and extracted a research dataset from the identified sample locations."]
+      "summary": "Rome (IT)"
     },
     {
       "name": "Bosch Power Tools",
@@ -46,10 +40,7 @@
       "url": "https://www.wfp.org",
       "startDate": "2021-06-01",
       "endDate": "2021-09-01",
-      "summary": "Hangzhou (CN)",
-      "highlights": ["Innovated gear lifetime assessment by merging decision tree and segmented regression, pinpointing critical thresholds for accurate life prognosis.", 
-      "Performed fault diagnosis on vibration signals using FFT and Bi-spectrum models, utilizing interactive visualization for amplitude and sideband analysis.", 
-      "Applied data cleaning, calibration, and fusion techniques to estimate attitudes from power tool sensor data, improving movement reproduction in 3D animation."]
+      "summary": "Hangzhou (CN)"
     }
   ],
   "education": [
