@@ -13,7 +13,7 @@ authors:
     affiliations:
       name: Data-Pop Alliance, New York
 
-bibliography: 
+bibliography: 2024-11-08-Population-Estimates.bib
 
 # Optionally, you can add a table of contents to your post.
 # NOTES:
@@ -51,9 +51,9 @@ toc:
 
 **High-resolution population estimates** have become essential in fields like healthcare, disaster response, urban planning, and environmental management. These datasets provide a detailed view of population distribution, allowing decision-makers to target resources and interventions more effectively. Recent advances in integrating satellite data with census information have further improved the accuracy and timeliness of these population maps, making them powerful tools for both research and practical applications.
 
-Two widely-used high-resolution population datasets are **WorldPop** and Meta’s **High-Resolution Settlement Layer (HRSL)**:
+Two widely-used high-resolution population datasets are **WorldPop**<d-cite key="tatem2017worldpop"></d-cite> and Meta’s **High-Resolution Settlement Layer (HRSL)**<d-footnote>Meta Data For Good, High Resolution Population Density Maps <a href="https://dataforgood.facebook.com/dfg/tools/high-resolution-population-density-maps" target="_blank" rel="noopener noreferrer"> [link]</a></d-footnote>:
 
-- **WorldPop**, developed at the University of Southampton, offers open-access, peer-reviewed population datasets, which includes two types of population grids: one estimates populations across all land grid squares globally (unconstrained), while the other estimates populations only within areas identified as built settlements (constrained).
+- **WorldPop**, developed at the University of Southampton, offers open-access, peer-reviewed population datasets, which includes two types of population grids<d-footnote>WorldPop, Top-down estimation modelling: Constrained vs Unconstrained <a href="https://www.worldpop.org/methods/top_down_constrained_vs_unconstrained/" target="_blank" rel="noopener noreferrer"> [link]</a></d-footnote>: one estimates populations across all land grid squares globally (unconstrained), while the other estimates populations only within areas identified as built settlements (constrained).
 - **Meta’s HRSL**, created with CIESIN at Columbia University, combines satellite imagery with census data to estimate populations specifically within identified settlements. This high spatial resolution data provides detailed insights into both urban and rural population distributions.
 
 In this post, we will compare the methodologies of these two datasets, exploring their assumptions, modeling approaches, and limitations, to help guide users in choosing the most suitable product for their needs.
@@ -63,7 +63,7 @@ In this post, we will compare the methodologies of these two datasets, exploring
 ## Methodological Differences
 
 ### Starting Points and Goals
-WorldPop addresses a major limitation of prior studies—the dependency on high-resolution imagery, which is often costly and computationally intensive. By designing its models to work with a broad range of global datasets, WorldPop is capable of integrating both continuous and discrete covariates, allowing it to produce reliable population estimates across different scales, even in areas with limited high-resolution data. In contrast, HRSL prioritizes accuracy, particularly in rural regions where sparse populations pose significant challenges to remote sensing techniques and traditional modeling. By improving building detection, HRSL enhances the accuracy of population estimates in these low-density areas, aiming for global consistency.
+WorldPop<d-cite key="stevens2015worldpop"></d-cite> addresses a major limitation of prior studies—the dependency on high-resolution imagery, which is often costly and computationally intensive. By designing its models to work with a broad range of global datasets, WorldPop is capable of integrating both continuous and discrete covariates, allowing it to produce reliable population estimates across different scales, even in areas with limited high-resolution data. In contrast, HRSL<d-cite key="tiecke2017hrsl"></d-cite> prioritizes accuracy, particularly in rural regions where sparse populations pose significant challenges to remote sensing techniques and traditional modeling. By improving building detection, HRSL enhances the accuracy of population estimates in these low-density areas, aiming for global consistency.
 
 ### Modeling Approach
 WorldPop employs a Random Forest model combined with a variety of geospatial inputs to perform dasymetric redistribution, aiming to capture the spatial heterogeneity of population distribution at the pixel level within census units. The model uses recent census-based population counts, redistributing them across grid cells by analyzing the relationships between population densities and diverse covariate layers, such as land use, elevation, and infrastructure. This approach assumes that the Random Forest model’s capability to incorporate multiple variables enhances the accuracy of population estimates.
@@ -95,7 +95,7 @@ When comparing high-resolution population models, particularly Meta’s High Res
 ---
 
 ## Top-Down vs. Bottom-Up Strategy
-Building on previous chapters, this section takes a higher-level perspective on modeling strategies, shifting the focus from technical and model-specific details to structural design. Here, we outline two primary approaches: the top-down and bottom-up methods.
+Building on previous chapters, this section takes a higher-level perspective on modeling strategies, shifting the focus from technical and model-specific details to structural design. Here, we outline two primary approaches: the top-down and bottom-up methods<d-footnote>WorldPop gridded population estimate datasets and tools. How are they different and which should I use? <a href="https://www.worldpop.org/methods/populations/" target="_blank" rel="noopener noreferrer"> [link]</a></d-footnote>.
 
 Both WorldPop and HRSL employ the Top-Down Approach, which starts with broad, aggregate data sources, such as national census counts. These aggregate counts, usually at high administrative levels, are then redistributed into smaller, consistent grids, using supporting data like land use, satellite imagery, and other geospatial inputs. In contrast, the Bottom-Up Approach begins with highly detailed, localized data—such as household surveys—and scales up to create gridded population estimates across larger regions. Each approach offers unique strengths and trade-offs, which shape population mapping outcomes.
 
@@ -110,7 +110,7 @@ Both WorldPop and HRSL employ the Top-Down Approach, which starts with broad, ag
 ---
 
 ## Comparing Gridded Population Products
-In this section, we summarize key characteristics of main gridded population products, providing a comparison across multiple dimensions such as **methodology, long-term monitoring capabilities, regional and global usability, and practical considerations**. The focus will include WorldPop, HRSL, along with two other widely used products: **Gridded Population of the World (GPW)**, developed by the Center for International Earth Science Information Network (CIESIN) at Columbia University, and **LandScan**, provided by Oak Ridge National Laboratory (ORNL). 
+In this section, we summarize key characteristics of main gridded population products, providing a comparison across multiple dimensions such as **methodology, long-term monitoring capabilities, regional and global usability, and practical considerations**. The focus will include WorldPop, HRSL, along with two other widely used products: **Gridded Population of the World (GPW)**<d-cite key="ciesin2018gpw"></d-cite>, developed by the Center for International Earth Science Information Network (CIESIN) at Columbia University, and **LandScan**<d-cite key="dobson2000landscan"></d-cite>, provided by Oak Ridge National Laboratory (ORNL). 
 
 
 
@@ -185,7 +185,8 @@ If you are working in a single country with no long-term monitoring goals, and y
 For long-term monitoring in a single country, WorldPop, GPW, and LandScan are ideal, as they provide population rasters dating back to 2000 and ensure historical consistency. It's important to note that GPW updates every five years, while WorldPop and LandScan update annually. The choice between these datasets will depend on the presence of sparsely populated or undeveloped regions. In such areas, a zero-allocation method with building identification is preferred over non-zero allocation (as shown in the maps below). Even when land cover data is used, some datasets may overlook sparse settlements and categorize these areas into larger land types like grassland or cropland. Another key consideration is resolution—WorldPop and HRSL are better suited when a finer resolution is needed.
 
 <div class="caption">
-    Figure 1. HRSL, LandScan, WorldPop Constraint and Unconstraint Population Map
+    Figure 1. HRSL, LandScan, WorldPop Constraint and Unconstraint Population Map<d-footnote>NASA and SEDAC, POPGRID Viewer
+ <a href="https://sedac.ciesin.columbia.edu/mapping/popgrid/comparison-view/" target="_blank" rel="noopener noreferrer"> [link]</a></d-footnote> 
 </div>
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
