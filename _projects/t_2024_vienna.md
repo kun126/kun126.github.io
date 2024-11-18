@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Nov 2024, Vienna
-description: 
+title: Vienna
+description: Oct 2024
 img: assets/img/for_travel/2024_vienna_cover.jpg
 importance: 1
 category: travel
