@@ -3,7 +3,7 @@ layout: page
 title: Vienna
 description: Oct 2024
 img: assets/img/for_travel/2024_vienna_cover.jpg
-importance: 1
+importance: 97
 category: travel
 related_publications: false
 ---
