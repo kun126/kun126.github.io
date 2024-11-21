@@ -1,16 +1,17 @@
 ---
 layout: page
 permalink: /life/
-title: life
-description: Personal collection of amazing events and life experiences
+title: ✨
+description: 
 nav: true
 nav_order: 6
 ---
 
-This is my little corner of the internet, created to inspire and motivate myself as I look back on the incredible moments I’ve been fortunate to experience 🌟.
+This is my little corner of the internet, created to inspire and motivate myself as I look back on the incredible moments I’ve been fortunate to experience.
 
 
 #### 2024
+- Published my map visualizations in a UN report
 - Completed my work with an end-to-end focus on seasonality detection
 - Attended the ESA 'EO4AGRI' workshop
 
