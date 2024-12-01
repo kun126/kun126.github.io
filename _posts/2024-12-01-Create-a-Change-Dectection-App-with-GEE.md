@@ -384,7 +384,7 @@ var infoPanel = ui.Panel({
 ## Step 5 App Initialization
 
 To complete the app:
-- Call the ·updateMaps()· function to render the map with default parameters.
+- Call the `updateMaps()` function to render the map with default parameters.
 - Combine the `infoPanel` and `splitPanel` into a root panel.
 - Display the app by attaching the root panel to the UI.
 
