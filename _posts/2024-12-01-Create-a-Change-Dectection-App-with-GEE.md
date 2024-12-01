@@ -85,7 +85,7 @@ For this tutorial, we will use [Change Detection Using Probability Bands](https:
 
 To start, divide the scripts into smaller, reusable sub-functions. This makes the code more organized and highlights which functions rely on inputs that can be made interactive. This structure will also simplify the process of updating the app based on user input.
 
-<d-code block language="javascript" style="font-size: 13px;">
+{% highlight javascript %}
 // Function to filter province geometry by province name.
 function getProvinceGeometry(provinceName) {
   return admin2.filter(ee.Filter.eq('ADM2_NAME', provinceName)).geometry();
@@ -125,7 +125,7 @@ function createMedianComposite(s2Collection, startDate, endDate) {
 function addLayerToMap(map, image, visParams, layerName, geometry) {
   map.addLayer(image.clip(geometry), visParams, layerName);
 }
-</d-code>
+{% endhighlight %}
 
 --- 
 
@@ -141,7 +141,7 @@ To create this:
 3. Link the maps to synchronize their views.
 4. Add the maps to a Split Panel layout.
 
-<d-code block language="javascript" style="font-size: 13px;">
+{% highlight javascript %}
 // Map configuration
 var beforeMap = ui.Map();
 var afterMap = ui.Map();
@@ -165,7 +165,7 @@ var splitPanel = ui.SplitPanel({
   orientation: 'horizontal',
   wipe: true,
 });
-</d-code>
+{% endhighlight %}
 
 ---
 
@@ -173,7 +173,7 @@ var splitPanel = ui.SplitPanel({
 
 Interactive controls make the app dynamic, allowing users to update the map based on their selections. We'll wrap the logic from Step 1 into an `updateMaps()` function to refresh the display with new inputs. Additionally, we'll reset map layers with `Map.layers().reset()` each time.
 
-<d-code block language="javascript" style="font-size: 13px;">
+{% highlight javascript %}
 // Update Maps
 function updateMaps(provinceName, beforeYear, afterYear) {
   beforeMap.layers().reset();
@@ -206,13 +206,13 @@ function updateMaps(provinceName, beforeYear, afterYear) {
   beforeMap.centerObject(geometry, 12);
   afterMap.centerObject(geometry, 12);
 }
-</d-code>
+{% endhighlight %}
 
 ### Area Selector
 
 We’ll use `ui.Select()` to create a dropdown menu of Lazio’s provinces. Each time the selection changes, trigger the `updateMaps()` function with `Selector.onChange()`.
 
-<d-code block language="javascript" style="font-size: 13px;">
+{% highlight javascript %}
 // Admin Polygons
 var admin2 = ee.FeatureCollection('FAO/GAUL_SIMPLIFIED_500m/2015/level2');
 var areas = admin2.filter(ee.Filter.eq('ADM1_NAME', 'Lazio')).aggregate_array('ADM2_NAME');
@@ -229,7 +229,7 @@ var provinceSelector = ui.Select({
 provinceSelector.onChange(function(newProvince) {
   updateMaps(newProvince, beforeyearText.getValue(), afteryearText.getValue());
 });
-</d-code>
+{% endhighlight %}
 
 ### Before and After Year Input
 
@@ -237,7 +237,7 @@ To allow custom date ranges, we’ll use `ui.Textbox()` widgets for user input. 
 
 Validation is crucial here. To ensure valid inputs, use a `validateYear()` function linked to a feedback label. Validation rules, such as chronological order or range constraints, are applied when the user clicks the submit button.
 
-<d-code block language="javascript" style="font-size: 13px;">
+{% highlight javascript %}
 // Textboxes and submit button
 var beforeyearText = ui.Textbox({placeholder: '2015', value: '2015'});
 var afteryearText = ui.Textbox({placeholder: '2020', value: '2020'});
@@ -282,13 +282,13 @@ submitButton.onClick(function() {
     updateMaps(provinceSelector.getValue(), beforeyearText.getValue(), afteryearText.getValue());
     }
 })
-</d-code>
+{% endhighlight %}
 
 ### Opacity Slider
 
 The last interactive component is opacity control. An opacity slider using `ui.Slider()` will let users adjust the visibility of satellite imagery. This control is especially useful for comparing new built-up areas with the basemap (Google Maps).
 
-<d-code block language="javascript" style="font-size: 13px;">
+{% highlight javascript %}
 var opacitySlider = ui.Slider({
   min: 0, 
   max: 1, 
@@ -301,7 +301,7 @@ opacitySlider.onChange(function(value) {
   beforeMap.layers().get(0).setOpacity(value);
   afterMap.layers().get(0).setOpacity(value);
 });
-</d-code>
+{% endhighlight %}
 
 ---
 
@@ -311,7 +311,7 @@ opacitySlider.onChange(function(value) {
 
 We’ll create a semi-transparent panel to mimic the style of the Dynamic World App. This panel will contain the textboxes, a submit button, and descriptive labels. Add it to the left map panel using `beforeMap.add(yearPanel)`. To improve aesthetics, use `beforeMap.setControlVisibility()` to disable unnecessary default buttons.
 
-<d-code block language="javascript" style="font-size: 13px;">
+{% highlight javascript %}
 // Year Selection Panel
 var yearPanel = ui.Panel({
   widgets: [
@@ -324,13 +324,13 @@ var yearPanel = ui.Panel({
   ],
   style: {position: 'top-left', height: '235px', width: '200px', backgroundColor: 'rgba(255, 255, 255, 0.6)',}
 });
-</d-code>
+{% endhighlight %}
 
 ### Split Panel Adjustments
 
 We’ll slightly adjust the split panel from Step 2 by removing location-sensitive components like `centerObject()`. These will be refreshed dynamically in the `updateMaps()` function. Add the year selection panel to the left map and clean up the default widgets.
 
-<d-code block language="javascript" style="font-size: 13px;">
+{% highlight javascript %}
 var beforeMap = ui.Map();
 var afterMap = ui.Map();
 beforeMap.add(yearPanel).setControlVisibility({all:false});
@@ -344,13 +344,13 @@ var splitPanel = ui.SplitPanel({
   orientation: 'horizontal',
   wipe: true,
 });
-</d-code>
+{% endhighlight %}
 
 ### Info Panel
 
 Finally, create an information panel to display a title, introduction, and references. Use a `ui.Panel()` with a divider to structure this content. Add it alongside the interactive controls for a cohesive layout.
 
-<d-code block language="javascript" style="font-size: 13px;">
+{% highlight javascript %}
 // Horizontal Black Line (divider)
 function createDivider() {
   return ui.Panel(null, null, {border: '1px solid black', margin: '8px auto', width: '95%'});
@@ -377,7 +377,7 @@ var infoPanel = ui.Panel({
   ],
   style: {width: '300px', padding: '15px'}
 });
-</d-code>
+{% endhighlight %}
 
 ---
 
@@ -388,7 +388,7 @@ To complete the app:
 - Combine the `infoPanel` and `splitPanel` into a root panel.
 - Display the app by attaching the root panel to the UI.
 
-<d-code block language="javascript" style="font-size: 13px;">
+{% highlight javascript %}
 updateMaps(provinceSelector.getValue(), beforeyearText.getValue(), afteryearText.getValue());
 
 ui.root.clear();
@@ -398,6 +398,6 @@ ui.root.add(ui.Panel({
   style: {stretch: 'both'}
   })
 );
-</d-code>
+{% endhighlight %}
 
 
